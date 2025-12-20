@@ -183,7 +183,7 @@
    - запускаем **Deploy Pipeline: Docker build → K8s canary → full rollout**,
    - уведомления: **Slack/Email + audit logs**.
 
-<img width="1448" height="421" alt="image" src="https://github.com/user-attachments/assets/468b1ff8-c785-4cf3-97e7-cde10418ab6b" />
+<img width="1430" height="385" alt="image" src="https://github.com/user-attachments/assets/ad1821c3-15ef-4945-a021-beaa8e7488ea" />
 
 ---
 
