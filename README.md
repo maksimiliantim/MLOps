@@ -129,8 +129,7 @@
 - **Логи и трассировки** — ELK.  
 - **Мониторинг бизнеса и модели**: кликабельность выдачи, конверсия в покупку, выручка, дрейф/скошенность распределений.  
 - При проблемах: **Alerts + Rollback** (автооткат на прошлую версию модели).
-
-<img width="1393" height="689" alt="image" src="https://github.com/user-attachments/assets/17dbc9ea-dc8f-41be-884a-460936d3c1ad" />
+<img width="1396" height="674" alt="image" src="https://github.com/user-attachments/assets/e675fb55-4297-4698-ad33-e2cddd0d12dc" />
 
 ---
 
