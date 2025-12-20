@@ -130,7 +130,7 @@
 - **Мониторинг бизнеса и модели**: кликабельность выдачи, конверсия в покупку, выручка, дрейф/скошенность распределений.  
 - При проблемах: **Alerts + Rollback** (автооткат на прошлую версию модели).
 
-<img width="1390" height="706" alt="image" src="https://github.com/user-attachments/assets/52e3b76c-c1f6-4bc5-a2c9-1f6961b011f9" />
+<img width="1393" height="689" alt="image" src="https://github.com/user-attachments/assets/17dbc9ea-dc8f-41be-884a-460936d3c1ad" />
 
 ---
 
