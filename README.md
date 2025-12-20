@@ -82,10 +82,6 @@
 
 ## Часть 2. Проектирование архитектуры
 
-Ниже описание соответствует вашим диаграммам: **высокоуровневая архитектура**, **Data Pipeline**, **Training Pipeline**, **Inference Pipeline**, **Data Storage**.
-
----
-
 ### 2.1 Высокоуровневая архитектура (контур поиска + контур ML)
 
 #### Вход запроса (онлайн-контур)
@@ -134,6 +130,8 @@
 - **Мониторинг бизнеса и модели**: кликабельность выдачи, конверсия в покупку, выручка, дрейф/скошенность распределений.  
 - При проблемах: **Alerts + Rollback** (автооткат на прошлую версию модели).
 
+<img width="1427" height="715" alt="image" src="https://github.com/user-attachments/assets/25484d1c-86bd-43ac-bd27-905db3a889d3" />
+
 ---
 
 ### 2.2 Data Pipeline (формирование признаков и обучающего датасета)
@@ -155,6 +153,8 @@
    - **Feature Store (Offline)** — признаки для обучения,
    - **Feature Store (Online)** — признаки для инференса,
    - **Training Dataset** — готовый датасет для LTR.
+     
+<img width="1345" height="401" alt="image" src="https://github.com/user-attachments/assets/4fab7541-7897-4446-ae58-756beb172a1d" />
 
 ---
 
@@ -183,6 +183,8 @@
    - запускаем **Deploy Pipeline: Docker build → K8s canary → full rollout**,
    - уведомления: **Slack/Email + audit logs**.
 
+<img width="1448" height="421" alt="image" src="https://github.com/user-attachments/assets/468b1ff8-c785-4cf3-97e7-cde10418ab6b" />
+
 ---
 
 ### 2.4 Inference Pipeline (обработка запросов в проде)
@@ -207,6 +209,8 @@
    - **Canary / Rollout Controller (10% → 100%)**,
    - версии моделей берутся из **Model Registry (versioned)**.
 
+<img width="1344" height="762" alt="image" src="https://github.com/user-attachments/assets/5fa0039d-b0f6-4a52-85d6-a20e516a8046" />
+
 ---
 
 ### 2.5 Data Storage (что где хранится и зачем)
@@ -225,6 +229,8 @@
   - **Offline Feature Store (batch features)** — признаки для обучения,
   - **Model Artifacts Store (ONNX, checkpoints)** — артефакты моделей,
   - **Object Storage (S3) (backups, log archive)** — архив логов/бэкапы.
+
+<img width="1294" height="569" alt="image" src="https://github.com/user-attachments/assets/bd89d5fb-ce0f-4f7c-843c-aa40e35e0086" />
 
 ---
 
