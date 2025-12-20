@@ -96,10 +96,10 @@
 Ниже описана архитектура, соответствующая подготовленным диаграммам draw.io:
 
 - `01_high_архитек.drawio` — высокоуровневая архитектура  
-- `04_data_pipeline_ласт.drawio` — data pipeline  
-- `03_training_pipeline_structured.drawio` — training pipeline  
-- `02_inference_pipeline_ласт.drawio` — inference pipeline  
-- `05_data_storage_ласт.drawio` — data storage  
+- `04_data_pipeline.drawio` — data pipeline  
+- `03_training_pipeline.drawio` — training pipeline  
+- `02_inference_pipeline.drawio` — inference pipeline  
+- `05_data_storage.drawio` — data storage  
 
 ### 2.1. Высокоуровневая архитектура
 
@@ -119,8 +119,7 @@
 - Kafka → Data Lake (Iceberg/Parquet),
 - batch‑обработка (Spark) → offline feature store + training datasets,
 - обучение → model registry → controlled rollout (canary).
-  
-<img width="1108" height="600" alt="image" src="https://github.com/user-attachments/assets/5885089c-41d0-42df-8463-4ac2bb1fef0d" />
+<img width="1090" height="549" alt="image" src="https://github.com/user-attachments/assets/73717162-190a-4084-94dc-ba6e05f4a527" />
 
 ---
 
@@ -148,6 +147,7 @@
 - проверка схемы/долей пропусков,
 - контроль свежести витрин,
 - поиск выбросов (аномальные CTR/CVR, аномальные цены).
+<img width="1164" height="337" alt="image" src="https://github.com/user-attachments/assets/26e2a1f0-b3b8-4387-be27-95b298d9f106" />
 
 ---
 
@@ -167,6 +167,7 @@
 7) Quality gates: минимальный NDCG@K + ограничение «latency proxy» (сложность модели).  
 8) Регистрация в Model Registry (версионирование).  
 9) Вкатка через canary → постепенный rollout.
+<img width="1429" height="385" alt="image" src="https://github.com/user-attachments/assets/50b9553d-a25d-4783-b277-e8fc4303922b" />
 
 ---
 
@@ -187,8 +188,46 @@
 **Деградация (fail‑open):**
 - при проблемах ранжировщика — отдаём **retrieval‑ранжирование** (BM25/ANN) и сохраняем SLA;
 - при недоступности feature store — используем «базовые» фичи (fallback).
+<img width="1249" height="712" alt="image" src="https://github.com/user-attachments/assets/7c41db9c-8aa6-4cd7-8cba-c6b26344d0c0" />
 
 ---
+
+### 2.5. Data Storage (хранилища и ретеншн)
+
+Data Storage выделяет, где и сколько времени живут данные поисковой системы (как для online, так и для обучения):
+
+**1) Result Cache (Redis, TTL 1–5 мин)**  
+- хранит последние ответы (Top-K) по ключу запроса+контекста;  
+- цель: снизить задержку и нагрузку на ранжирование при повторяющихся запросах.
+
+**2) Online Feature Store / KV (near-real-time)**  
+- ключ-значение витрины для быстрых онлайн-lookup’ов: цена/наличие/промо, агрегаты CTR/CVR, фичи товара/пользователя;  
+- обновляется потоково/микробатчами (из Kafka/ETL), используется Feature Service на инференсе.
+
+**3) Search Index (OpenSearch)**  
+- инвертированный индекс для BM25 + ANN-вектора (если используем семантический retrieval);  
+- принимает обновления из каталога (reindex/update) и отдаёт Retrieval Service top-N кандидатов.
+
+**4) Results DB (PostgreSQL, last ~30 days)**  
+- хранит историю выдач/аудит/диагностику качества (например, какие товары были показаны);  
+- полезно для расследований инцидентов, сверки экспериментов и построения отчётности.
+
+**5) Data Lake (Iceberg/Parquet)**  
+- сырые логи (queries/impressions/clicks/orders) + снапшоты каталога;  
+- является источником правды для пересборки датасетов и воспроизводимости обучения.
+
+**6) Iceberg Snapshots / Object Storage (S3)**  
+- snapshots обеспечивают историчность данных для retraining/backtesting;  
+- S3 используется для архивов и бэкапов (Results DB backup, snapshots индекса, логи).
+
+**7) Model Artifacts Store (ONNX, checkpoints)**  
+- артефакты моделей и калибраторов, метаданные версий;  
+- бэкап в объектное хранилище, совместим с Model Registry.
+
+Соответственно, online-запрос обслуживается преимущественно за счёт **Redis + OpenSearch + Online KV**, а контур обучения и воспроизводимости — через **Data Lake + Snapshots + Offline features + Artifacts**.
+
+<img width="1265" height="505" alt="image" src="https://github.com/user-attachments/assets/9aa46f7e-d115-4b1c-a42c-f21cc4a19cf0" />
+
 
 ## Часть 3. Расчёты и нефункциональные требования
 
