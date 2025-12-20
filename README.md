@@ -154,7 +154,7 @@
    - **Feature Store (Online)** — признаки для инференса,
    - **Training Dataset** — готовый датасет для LTR.
      
-<img width="1345" height="401" alt="image" src="https://github.com/user-attachments/assets/4fab7541-7897-4446-ae58-756beb172a1d" />
+<img width="1301" height="353" alt="image" src="https://github.com/user-attachments/assets/ffc649f9-67cd-4d63-b3bc-2e8675994993" />
 
 ---
 
