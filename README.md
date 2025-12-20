@@ -208,8 +208,7 @@
 8. Управление релизом:
    - **Canary / Rollout Controller (10% → 100%)**,
    - версии моделей берутся из **Model Registry (versioned)**.
-
-<img width="1344" height="762" alt="image" src="https://github.com/user-attachments/assets/5fa0039d-b0f6-4a52-85d6-a20e516a8046" />
+<img width="1294" height="748" alt="image" src="https://github.com/user-attachments/assets/b44de0bf-e8cd-40aa-8f1d-31cefaec2592" />
 
 ---
 
