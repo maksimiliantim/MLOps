@@ -93,14 +93,6 @@
 
 ## Часть 2. Проектирование архитектуры
 
-Ниже описана архитектура, соответствующая подготовленным диаграммам draw.io:
-
-- `01_high_архитек.drawio` — высокоуровневая архитектура  
-- `04_data_pipeline.drawio` — data pipeline  
-- `03_training_pipeline.drawio` — training pipeline  
-- `02_inference_pipeline.drawio` — inference pipeline  
-- `05_data_storage.drawio` — data storage  
-
 ### 2.1. Высокоуровневая архитектура
 
 **Поток онлайн‑запроса:**
