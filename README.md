@@ -119,6 +119,8 @@
 - Kafka → Data Lake (Iceberg/Parquet),
 - batch‑обработка (Spark) → offline feature store + training datasets,
 - обучение → model registry → controlled rollout (canary).
+  
+<img width="1108" height="600" alt="image" src="https://github.com/user-attachments/assets/5885089c-41d0-42df-8463-4ac2bb1fef0d" />
 
 ---
 
