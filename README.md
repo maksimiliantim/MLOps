@@ -228,8 +228,7 @@
   - **Offline Feature Store (batch features)** — признаки для обучения,
   - **Model Artifacts Store (ONNX, checkpoints)** — артефакты моделей,
   - **Object Storage (S3) (backups, log archive)** — архив логов/бэкапы.
-
-<img width="1294" height="569" alt="image" src="https://github.com/user-attachments/assets/bd89d5fb-ce0f-4f7c-843c-aa40e35e0086" />
+<img width="1282" height="505" alt="image" src="https://github.com/user-attachments/assets/4c48ff21-a676-4643-8f1d-f459d4b83ffc" />
 
 ---
 
