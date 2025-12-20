@@ -223,7 +223,7 @@
   - **Results DB (PostgreSQL) (last 30 days)** — история выдач/аудит/аналитика “короткого хвоста”.
 - События и обучение:
   - **Event Bus (Kafka)** — поток событий поиска,
-  - **Data Lake (Iceberg/Parquet) raw logs + training datasets** — сырьё + датасеты,
+  - **Data Lake (Iceberg/Parquet) raw logs + training datasets** — исходные данные + датасеты,
   - **Iceberg Snapshots** — историчность/воспроизводимость для retraining,
   - **Offline Feature Store (batch features)** — признаки для обучения,
   - **Model Artifacts Store (ONNX, checkpoints)** — артефакты моделей,
