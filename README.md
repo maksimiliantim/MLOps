@@ -155,6 +155,7 @@
    - **Training Dataset** — готовый датасет для LTR.
      
 <img width="1301" height="353" alt="image" src="https://github.com/user-attachments/assets/ffc649f9-67cd-4d63-b3bc-2e8675994993" />
+<img width="559" height="817" alt="image" src="https://github.com/user-attachments/assets/554879f0-ae12-412f-a59e-375ea23db07b" />
 
 ---
 
