@@ -339,3 +339,5 @@
 1. Материалы курса (data pipeline, training, deployment, monitoring).  
 2. Сюй А. *System Design. Подготовка к сложному интервью* (принципы проектирования высоконагруженных систем).  
 3. Практики Kafka/Kubernetes/OpenSearch для online-search и ML-serving.
+4. Kubernetes Documentation. https://kubernetes.io/docs/
+5. Feature Store for Machine Learning. Logical Clocks, 2021.
