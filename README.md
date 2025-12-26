@@ -130,7 +130,7 @@
 - **Мониторинг бизнеса и модели**: кликабельность выдачи, конверсия в покупку, выручка, дрейф/скошенность распределений.  
 - При проблемах: **Alerts + Rollback** (автооткат на прошлую версию модели).
 
-<img width="1394" height="670" alt="image" src="https://github.com/user-attachments/assets/646a4c11-0dea-4e58-b92d-1149d9473cea" />
+<img width="584" height="803" alt="image" src="https://github.com/user-attachments/assets/6c9aec2e-21aa-4195-9929-450348dc223d" />
 
 ---
 
@@ -183,7 +183,7 @@
    - запускаем **Deploy Pipeline: Docker build → K8s canary → full rollout**,
    - уведомления: **Slack/Email + audit logs**.
 
-<img width="1428" height="388" alt="image" src="https://github.com/user-attachments/assets/1fa5e8c5-a907-485c-9eb8-111ec10b0834" />
+<img width="492" height="810" alt="image" src="https://github.com/user-attachments/assets/29a0daf6-94a3-43c7-9607-fe2e19ed25bd" />
 
 ---
 
@@ -208,7 +208,7 @@
 8. Управление релизом:
    - **Canary / Rollout Controller (10% → 100%)**,
    - версии моделей берутся из **Model Registry (versioned)**.
-<img width="1294" height="748" alt="image" src="https://github.com/user-attachments/assets/b44de0bf-e8cd-40aa-8f1d-31cefaec2592" />
+<img width="838" height="822" alt="image" src="https://github.com/user-attachments/assets/18941de7-bf98-4d47-9975-29c6fb3454d7" />
 
 ---
 
@@ -228,7 +228,7 @@
   - **Offline Feature Store (batch features)** — признаки для обучения,
   - **Model Artifacts Store (ONNX, checkpoints)** — артефакты моделей,
   - **Object Storage (S3) (backups, log archive)** — архив логов/бэкапы.
-<img width="1282" height="505" alt="image" src="https://github.com/user-attachments/assets/4c48ff21-a676-4643-8f1d-f459d4b83ffc" />
+<img width="1375" height="558" alt="image" src="https://github.com/user-attachments/assets/602453b7-2c0d-439b-8c03-2143eccc69b5" />
 
 ---
 
